@@ -1,0 +1,56 @@
+.containerd{
+
+    margin: auto;
+    border: solid 1px black;
+    padding: 100px;
+    border-radius: 5px;
+}
+
+.text{
+    text-align: center;
+    font-family: sans-serif;
+    margin-left: 40%;
+    font-size: 200%
+}
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li{
+    float: left;
+}
+
+li a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a :hover{
+    background-color: #fff;
+}
+
+div{
+    margin: auto;
+}
+
+form{
+    display: grid;
+    grid-template-columns: 200px 1fr; 
+    grid-gap: 16px;
+}
+
+
+table{
+    max-width: 80%;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: -1px 6px 15px -3px rgba(0,0,0,0.75);
+}

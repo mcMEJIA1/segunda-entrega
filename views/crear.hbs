@@ -1,0 +1,41 @@
+{{>header}}
+<div class="containerd">
+    <form action="/curso" method="post" id="form1">
+        <div class="col">
+            <div class="row">
+                <label for="id">Id:</label>
+                <input class="form-control" type="number" id="id" name="id" required>
+            </div>
+            <div class="row">
+                <label for="intensidad">Intensidad:</label>
+                <input class="form-control"  type="number" id="intensidad" name="intensidad">
+            </div>
+            <div class="row">
+                <label>Valor:</label>
+                <input class="form-control" type="number" name="valor" required>
+            </div>
+        </div> 
+        <div class="col">
+            <div class="row">
+                <label>Nombre:</label>
+                <input class="form-control" type="text" name="nombre" required>
+            </div>
+            <div class="row">
+                <label for="modalidad">Modalidad:</label>
+                <select class="form-control"  name="modalidad" id="modalidad">
+                    <option value="-"></option>
+                    <option value="Presencial">Presencial</option>
+                    <option value="Virtual">Virtual</option>
+                    <option value="Semi presencial">Semi presencial</option>
+                </select>
+            </div>
+            <div class="row">
+                <label for="desc">Descripcion:</label>
+                <textarea class="form-control" name="descripcion" id="desc" cols="30" rows="7" required></textarea>  
+            </div>
+        </div>
+        
+        <input type="submit" class="btn btn-primary" value="Crear">        
+    </form>
+</div>
+{{>footer}}
