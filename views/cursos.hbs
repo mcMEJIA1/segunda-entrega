@@ -1,4 +1,27 @@
 {{>header}}
 <br>
 {{{listar}}}
+<br>
+<div class="container">
+    <form action="/cursos" method="GET">
+        <div class="col">    
+            <div class="row">
+                <select class='browser-default custom-select' name ='id'>
+                    {{{cursos}}}
+                </select> 
+            </div>  
+        </div>
+        <div class="col">
+            <select class='browser-default custom-select' name="estado" id="estado">
+                <option value="disponible">disponible</option>
+                <option value="cerrado">cerrado</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Actualizar</button>
+        {{{resp}}}
+    </form>
+</div>
+<br>
+
+
 {{>footer}}

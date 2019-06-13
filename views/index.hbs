@@ -1,2 +1,22 @@
 {{>header}}
+<br>
+<div class="container-fluid">
+    <form>
+        <div class="col"></div>
+        <div class="col">
+            <div class="form-group">
+                <label for="User">Usuario: </label>
+                <input type="email" class="form-control" id="user" aria-describedby="emailHelp" placeholder="Usiario">
+                <small id="emailHelp" class="form-text text-muted">Ingrese sus usuario</small>
+            </div>
+            <div class="form-group">
+                <label for="Password">Password</label>
+                <input type="password" class="form-control" id="Password" placeholder="Password"> 
+            </div>
+            <button type="submit" class="btn btn-primary">Entrar</button>
+            <p>¿No tienes cuenta?</p>
+            <a href="/registro">Registrate</a>
+        </div>    
+  </form>
+</div>
 {{>footer}}

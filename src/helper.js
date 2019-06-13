@@ -45,26 +45,30 @@ hbs.registerHelper('listar2',()=>{
         let texto = '<a class="text">No hay cursos</a>'
         return texto
     }else{
-        let texto = "<div class='accordion' id='accordionExample'>";
+        let texto = `<div class="row">`;
         i = 1;
         listaCursos.forEach(curso => {
             if(curso.estadoc == 'disponible'){
                 texto = texto + 
-                `<div class="card"> 
-                    <div class="card-header" id="heading${i}"> 
-                    <h2 class="mb-0">
-                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse${i}" aria-expanded="true" aria-controls="collapse${i}">
-                            ${curso.nombrec}
-                        </button>
-                    </h2>
-                    </div>
+                `<div class="col">
+                    <div class='accordion' id='accordionExample'>
+                        <div class="card"> 
+                            <div class="card-header" id="heading${i}"> 
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse${i}" aria-expanded="true" aria-controls="collapse${i}">
+                                        Nombre: ${curso.nombrec} <br>
+                                        Valor: ${curso.valorc}<br>
+                                    </button>
+                                </h2>
+                            </div>
 
-                    <div id="collapse${i}" class="collapse" aria-labelledby="heading${i}" data-parent="#accordionExample">
-                        <div class="card-body">
-                            Descripcion: ${curso.descripcionc} <br>
-                            Valor: ${curso.valorc}<br>
-                            Modalidad: ${curso.modalidadc}<br>
-                            Intenidad: ${curso.intensidadc}<br>
+                            <div id="collapse${i}" class="collapse" aria-labelledby="heading${i}" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    Descripcion: ${curso.descripcionc} <br>
+                                    Modalidad: ${curso.modalidadc}<br>
+                                    Intensidad: ${curso.intensidadc}<br>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>`
@@ -73,8 +77,61 @@ hbs.registerHelper('listar2',()=>{
             }
             i=i+1;
         });
-        texto = texto + '</div>'
+        texto = texto + '</div></div>'
         return texto
     }
 })
+
+
+hbs.registerHelper('cursos', ()=>{
+    listaCursos = funciones.listar();
+    if(listaCursos.length == 0){
+        let texto = ''
+        return texto
+    }else{
+        let texto = "";
+        listaCursos.forEach(curso=>{
+            texto = texto + `<option value='${curso.idc}'>${curso.nombrec}</option>`
+        }) 
+        return texto
+    }
+})
+
+hbs.registerHelper('inscribir',()=>{
+    listaCursos = funciones.listar();
+    let texto = ' <table class="table table-striped table-hover"> \
+                    <thead class="thead-dark">\
+                    <th> Id </th>\
+                    <th> Nombre </th>\
+                    <th> descripcion </th>\
+                    <th> valor </th>\
+                    <th> modalidad </th>\
+                    <th> intensidad </th>\
+                    </thead>\
+                    <body>';
+    
+        listaCursos.forEach(curso => {
+            if(curso.estadoc == 'disponible'){
+                texto =  texto + `<tr><td> <input type="radio" name="cursoid" value="${curso.idc}" required></td>`+
+                       '<td>' +curso.nombrec+'</td>' +
+                       '<td>' +curso.descripcionc+'</td>' +
+                       '<td>' +curso.valorc +'</td>'+
+                       '<td>' +curso.modalidadc +'</td>' +
+                       '<td>' +curso.intensidadc +'</td>' +
+                       '</tr>'
+            }else{
+                texto = texto
+            }
+        
+    });
+
+    texto = texto +' </tbody> </table> ';
+
+    return texto;
+
+})
+
+
+
+
 
